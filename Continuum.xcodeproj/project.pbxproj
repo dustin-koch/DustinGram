@@ -17,6 +17,7 @@
 		CAB793E122A7037C00C14A02 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB793E022A7037C00C14A02 /* Post.swift */; };
 		CAB793E322A705B600C14A02 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB793E222A705B600C14A02 /* Comment.swift */; };
 		CAB793E622A706A400C14A02 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB793E522A706A400C14A02 /* PostController.swift */; };
+		CAB793E822A70BD900C14A02 /* PostTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB793E722A70BD900C14A02 /* PostTableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CAB793E022A7037C00C14A02 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CAB793E222A705B600C14A02 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		CAB793E522A706A400C14A02 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		CAB793E722A70BD900C14A02 /* PostTableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +66,11 @@
 		CAB793C522A7004E00C14A02 /* Continuum */ = {
 			isa = PBXGroup;
 			children = (
-				CAB793CA22A7004E00C14A02 /* Main.storyboard */,
+				CAB793D822A7008D00C14A02 /* Resources */,
+				CAB793E922A70EF700C14A02 /* Views */,
 				CAB793DF22A7035A00C14A02 /* View Controllers */,
 				CAB793E422A705BB00C14A02 /* Models */,
-				CAB793D822A7008D00C14A02 /* Resources */,
-				CAB793E522A706A400C14A02 /* PostController.swift */,
+				CAB793EA22A70F7400C14A02 /* Model Controllers */,
 			);
 			path = Continuum;
 			sourceTree = "<group>";
@@ -101,6 +103,23 @@
 				CAB793E222A705B600C14A02 /* Comment.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CAB793E922A70EF700C14A02 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAB793CA22A7004E00C14A02 /* Main.storyboard */,
+				CAB793E722A70BD900C14A02 /* PostTableTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CAB793EA22A70F7400C14A02 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAB793E522A706A400C14A02 /* PostController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB793E822A70BD900C14A02 /* PostTableTableViewCell.swift in Sources */,
 				CAB793C722A7004E00C14A02 /* AppDelegate.swift in Sources */,
 				CAB793E322A705B600C14A02 /* Comment.swift in Sources */,
 				CAB793DA22A7023500C14A02 /* PostListTableViewController.swift in Sources */,
