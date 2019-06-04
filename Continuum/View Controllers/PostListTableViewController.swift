@@ -13,6 +13,10 @@ class PostListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -28,7 +32,7 @@ class PostListTableViewController: UITableViewController {
         return cell
     }
 
-    //LEAVING IN CASE I WANT TO DELETE PHOTOS LATER HERE?
+    //LEAVING IN CASE I WANT TO DELETE POSTS LATER HERE?
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

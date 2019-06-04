@@ -12,11 +12,11 @@ class PostDetailTableViewController: UITableViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var followPostButtonLabel: UIButton!
     
     //MARK: - Landing pad
     var post: Post? {
         didSet {
+            loadViewIfNeeded()
             updateView()
         }
     }
@@ -27,6 +27,7 @@ class PostDetailTableViewController: UITableViewController {
     
     //MARK: - Actions
     @IBAction func commentButtonTapped(_ sender: UIButton) {
+        presentAlertController()
     }
     @IBAction func shareButtonTapped(_ sender: UIButton) {
     }
@@ -36,11 +37,11 @@ class PostDetailTableViewController: UITableViewController {
     //MARK: - Helper functions
     func updateView() {
         if let post = post {
+            //TESTING PURPOSES
             photoImageView.image = post.photo
         }
     }
     
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,5 +65,27 @@ class PostDetailTableViewController: UITableViewController {
         return true
     }
     */
+    
+    //MARK: - Alert Controller
+    func presentAlertController(){
+        let alertController = UIAlertController(title: "Photo Comments", message: "Add your comment here 👇🏽", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Write comment here..."
+        }
+        let dismissAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+        let addAction = UIAlertAction.init(title: "Add Comment", style: .default) { (_) in
+            guard let commentText = alertController.textFields?.first?.text,
+                alertController.textFields?.first?.text != "",
+                let post = self.post else { return }
+            PostController.sharedInstance.addComment(text: commentText, post: post, completion: { (comment) in
+            })
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        alertController.addAction(dismissAction)
+        alertController.addAction(addAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 
 }//END OF Table VIew Controller

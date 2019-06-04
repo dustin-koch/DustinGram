@@ -113,31 +113,133 @@
             </objects>
             <point key="canvasLocation" x="1013.0434782608696" y="-140.625"/>
         </scene>
-        <!--Add Post Table View Controller-->
+        <!--Create Post-->
         <scene sceneID="EpD-hD-hZu">
             <objects>
                 <tableViewController id="Ld8-Zj-j54" customClass="AddPostTableViewController" customModule="Continuum" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="csN-GL-VtC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="csN-GL-VtC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="136" id="Ayn-Cv-52B">
-                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ayn-Cv-52B" id="EoI-kD-n5H">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Photo" id="Tm7-95-aMU">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Ayn-Cv-52B">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ayn-Cv-52B" id="EoI-kD-n5H">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="c5F-28-XLe">
+                                                    <rect key="frame" x="107.5" y="0.0" width="199.5" height="199.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="c5F-28-XLe" secondAttribute="height" multiplier="1:1" id="tt3-nn-OEz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qj-8w-Tr1">
+                                                    <rect key="frame" x="20" y="11" width="374" height="178"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                    <state key="normal" title="📸 Select Photo 📸">
+                                                        <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="selectPhotoTapped:" destination="Ld8-Zj-j54" eventType="touchUpInside" id="jZA-vn-rwx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5Qj-8w-Tr1" secondAttribute="trailing" id="8ZQ-qK-aZA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5Qj-8w-Tr1" secondAttribute="bottom" id="JlK-f3-bgE"/>
+                                                <constraint firstItem="5Qj-8w-Tr1" firstAttribute="top" secondItem="EoI-kD-n5H" secondAttribute="topMargin" id="Piv-sN-WA2"/>
+                                                <constraint firstItem="5Qj-8w-Tr1" firstAttribute="leading" secondItem="EoI-kD-n5H" secondAttribute="leadingMargin" id="WdM-cj-Kkq"/>
+                                                <constraint firstItem="c5F-28-XLe" firstAttribute="centerY" secondItem="EoI-kD-n5H" secondAttribute="centerY" id="Yii-F3-ijG"/>
+                                                <constraint firstItem="c5F-28-XLe" firstAttribute="top" secondItem="EoI-kD-n5H" secondAttribute="top" id="l40-6i-qdZ"/>
+                                                <constraint firstItem="c5F-28-XLe" firstAttribute="centerX" secondItem="EoI-kD-n5H" secondAttribute="centerX" id="xHg-w7-IMJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="c5F-28-XLe" secondAttribute="bottom" id="y9x-Do-E5N"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Description" id="QMC-Vx-vRv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="SeP-PX-82g">
+                                        <rect key="frame" x="0.0" y="311.5" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SeP-PX-82g" id="3wZ-8F-Wek">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert photo description, here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7K-y4-7wI">
+                                                    <rect key="frame" x="28" y="26" width="358" height="48"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r7K-y4-7wI" firstAttribute="leading" secondItem="3wZ-8F-Wek" secondAttribute="leadingMargin" constant="8" id="4QO-nS-5PH"/>
+                                                <constraint firstItem="r7K-y4-7wI" firstAttribute="top" secondItem="3wZ-8F-Wek" secondAttribute="topMargin" constant="15" id="9Zv-WA-BhK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="r7K-y4-7wI" secondAttribute="trailing" constant="8" id="Uyf-t3-o3v"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="r7K-y4-7wI" secondAttribute="bottom" constant="15" id="lC5-E8-6NG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Send it" id="MmV-tS-B5G">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="JMw-58-1ap">
+                                        <rect key="frame" x="0.0" y="467.5" width="414" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JMw-58-1ap" id="enM-CZ-001">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-JE-vyC">
+                                                    <rect key="frame" x="120" y="26" width="174" height="40"/>
+                                                    <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <state key="normal" title="Add Post">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addPostTapped:" destination="Ld8-Zj-j54" eventType="touchUpInside" id="AkY-GG-4Hs"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xO8-JE-vyC" secondAttribute="bottom" constant="15" id="7wy-aC-7hp"/>
+                                                <constraint firstItem="xO8-JE-vyC" firstAttribute="top" secondItem="enM-CZ-001" secondAttribute="topMargin" constant="15" id="GSH-vk-0sl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xO8-JE-vyC" secondAttribute="trailing" constant="100" id="Zc7-bh-eEc"/>
+                                                <constraint firstItem="xO8-JE-vyC" firstAttribute="leading" secondItem="enM-CZ-001" secondAttribute="leadingMargin" constant="100" id="yKG-ts-b9Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="Ld8-Zj-j54" id="mkS-IF-DO0"/>
                             <outlet property="delegate" destination="Ld8-Zj-j54" id="52D-7L-ETQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Oa7-Nr-MSv"/>
+                    <navigationItem key="navigationItem" title="Create Post" id="zWE-7w-8qr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Zk-2A-d87">
+                            <connections>
+                                <action selector="cancelTapped:" destination="Ld8-Zj-j54" id="0cz-wF-htv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="postCaptionTextField" destination="r7K-y4-7wI" id="x9x-fY-nUZ"/>
+                        <outlet property="postPhotoImageView" destination="c5F-28-XLe" id="AD7-dI-4jL"/>
+                        <outlet property="selectPhotoButton" destination="5Qj-8w-Tr1" id="18f-JA-3fL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeE-Md-w3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +349,6 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="followPostButtonLabel" destination="DGv-P7-RVx" id="txt-ig-rnN"/>
                         <outlet property="photoImageView" destination="mPQ-xS-Xyl" id="RiY-eK-sHp"/>
                     </connections>
                 </tableViewController>
