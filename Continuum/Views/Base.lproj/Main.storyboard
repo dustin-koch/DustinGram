@@ -131,7 +131,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="c5F-28-XLe">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c5F-28-XLe">
                                                     <rect key="frame" x="107.5" y="0.0" width="199.5" height="199.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="c5F-28-XLe" secondAttribute="height" multiplier="1:1" id="tt3-nn-OEz"/>
@@ -200,11 +200,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-JE-vyC">
-                                                    <rect key="frame" x="120" y="26" width="174" height="40"/>
-                                                    <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="70"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <state key="normal" title="Add Post">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Tap to Add Post">
+                                                        <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="addPostTapped:" destination="Ld8-Zj-j54" eventType="touchUpInside" id="AkY-GG-4Hs"/>
@@ -212,10 +211,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="xO8-JE-vyC" secondAttribute="bottom" constant="15" id="7wy-aC-7hp"/>
-                                                <constraint firstItem="xO8-JE-vyC" firstAttribute="top" secondItem="enM-CZ-001" secondAttribute="topMargin" constant="15" id="GSH-vk-0sl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xO8-JE-vyC" secondAttribute="trailing" constant="100" id="Zc7-bh-eEc"/>
-                                                <constraint firstItem="xO8-JE-vyC" firstAttribute="leading" secondItem="enM-CZ-001" secondAttribute="leadingMargin" constant="100" id="yKG-ts-b9Q"/>
+                                                <constraint firstItem="xO8-JE-vyC" firstAttribute="top" secondItem="enM-CZ-001" secondAttribute="topMargin" id="IhK-pB-uzh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xO8-JE-vyC" secondAttribute="trailing" id="MeA-g4-Eol"/>
+                                                <constraint firstItem="xO8-JE-vyC" firstAttribute="leading" secondItem="enM-CZ-001" secondAttribute="leadingMargin" id="XHX-fq-Z9l"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xO8-JE-vyC" secondAttribute="bottom" id="r7N-Uu-xaw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

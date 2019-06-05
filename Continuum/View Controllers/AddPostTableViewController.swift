@@ -15,15 +15,20 @@ class AddPostTableViewController: UITableViewController {
     @IBOutlet weak var postCaptionTextField: UITextField!
     @IBOutlet weak var postPhotoImageView: UIImageView!
     
+    //MARK: - Properties
+    var imagePicker: ImagePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     
     //MARK: - Actions
     @IBAction func selectPhotoTapped(_ sender: UIButton) {
         //select photo, assign to image view
-        DispatchQueue.main.async {
-            self.selectPhotoButton.titleLabel?.text = ""
+        self.imagePicker.present(from: sender)
+            DispatchQueue.main.async {
+                self.selectPhotoButton.titleLabel?.text = ""
         }
     }
     
@@ -31,7 +36,7 @@ class AddPostTableViewController: UITableViewController {
         guard let photo = postPhotoImageView.image,
         let caption = postCaptionTextField.text,
             postCaptionTextField.text != "" else { return }
-        PostController.sharedInstance.createPostWith(image: UIImage(named: "sample")!, caption: caption) { (post) in
+        PostController.sharedInstance.createPostWith(image: photo, caption: caption) { (post) in
             if let post = post {
                 PostController.sharedInstance.posts.append(post)
             }
@@ -39,6 +44,7 @@ class AddPostTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.selectPhotoButton.titleLabel?.text = "📸 Select Photo 📸"
             self.postCaptionTextField.text = ""
+            self.postPhotoImageView.image = nil
         }
         self.tabBarController?.selectedIndex = 0
         
@@ -56,4 +62,19 @@ class AddPostTableViewController: UITableViewController {
         return 1
     }
 
+    //
+    
+    
+    
+    
+    
 }//END OF TABLE view controller
+
+extension AddPostTableViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        DispatchQueue.main.async {
+            self.selectPhotoButton.titleLabel?.text = ""
+            self.postPhotoImageView.image = image
+        }
+    }
+}

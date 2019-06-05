@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAA2B46622A73F040052B109 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA2B46522A73F040052B109 /* ImagePicker.swift */; };
+		CAAA91C522A8547B001BEEA2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAA91C422A8547B001BEEA2 /* CloudKit.framework */; };
+		CAAA91C722A856B2001BEEA2 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA91C622A856B2001BEEA2 /* SearchableRecord.swift */; };
 		CAB793C722A7004E00C14A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB793C622A7004E00C14A02 /* AppDelegate.swift */; };
 		CAB793CC22A7004E00C14A02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB793CA22A7004E00C14A02 /* Main.storyboard */; };
 		CAB793CE22A7004F00C14A02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB793CD22A7004F00C14A02 /* Assets.xcassets */; };
@@ -21,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CAA2B46522A73F040052B109 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CAAA91C222A85479001BEEA2 /* Continuum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum.entitlements; sourceTree = "<group>"; };
+		CAAA91C422A8547B001BEEA2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		CAAA91C622A856B2001BEEA2 /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		CAB793C322A7004E00C14A02 /* Continuum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Continuum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB793C622A7004E00C14A02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB793CB22A7004E00C14A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,17 +48,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAA91C522A8547B001BEEA2 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAAA91C322A8547B001BEEA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAAA91C422A8547B001BEEA2 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CAB793BA22A7004E00C14A02 = {
 			isa = PBXGroup;
 			children = (
 				CAB793C522A7004E00C14A02 /* Continuum */,
 				CAB793C422A7004E00C14A02 /* Products */,
+				CAAA91C322A8547B001BEEA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +83,7 @@
 		CAB793C522A7004E00C14A02 /* Continuum */ = {
 			isa = PBXGroup;
 			children = (
+				CAAA91C222A85479001BEEA2 /* Continuum.entitlements */,
 				CAB793D822A7008D00C14A02 /* Resources */,
 				CAB793E922A70EF700C14A02 /* Views */,
 				CAB793DF22A7035A00C14A02 /* View Controllers */,
@@ -99,8 +117,10 @@
 		CAB793E422A705BB00C14A02 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CAA2B46522A73F040052B109 /* ImagePicker.swift */,
 				CAB793E022A7037C00C14A02 /* Post.swift */,
 				CAB793E222A705B600C14A02 /* Comment.swift */,
+				CAAA91C622A856B2001BEEA2 /* SearchableRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +174,14 @@
 				TargetAttributes = {
 					CAB793C222A7004E00C14A02 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -193,9 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAA91C722A856B2001BEEA2 /* SearchableRecord.swift in Sources */,
 				CAB793E822A70BD900C14A02 /* PostTableTableViewCell.swift in Sources */,
 				CAB793C722A7004E00C14A02 /* AppDelegate.swift in Sources */,
 				CAB793E322A705B600C14A02 /* Comment.swift in Sources */,
+				CAA2B46622A73F040052B109 /* ImagePicker.swift in Sources */,
 				CAB793DA22A7023500C14A02 /* PostListTableViewController.swift in Sources */,
 				CAB793DE22A7030400C14A02 /* AddPostTableViewController.swift in Sources */,
 				CAB793E622A706A400C14A02 /* PostController.swift in Sources */,
@@ -346,7 +376,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Continuum/Continuum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D445CT62ZR;
 				INFOPLIST_FILE = "$(SRCROOT)/Continuum/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -363,7 +395,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Continuum/Continuum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D445CT62ZR;
 				INFOPLIST_FILE = "$(SRCROOT)/Continuum/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
