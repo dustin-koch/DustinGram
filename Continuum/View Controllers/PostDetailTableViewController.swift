@@ -30,6 +30,9 @@ class PostDetailTableViewController: UITableViewController {
         presentAlertController()
     }
     @IBAction func shareButtonTapped(_ sender: UIButton) {
+        guard let post = self.post else { return }
+        presentShareControllerFor(post: post)
+        
     }
     @IBAction func followButtonTapped(_ sender: UIButton) {
     }
@@ -56,15 +59,18 @@ class PostDetailTableViewController: UITableViewController {
         }
         return cell
     }
+    
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let post = post else { return }
+            post.comments.remove(at: indexPath.row)
+     // Delete the row from the data source
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+     }
 
-    //LEAVING IN CASE I WANT TO DELETE COMMENTS HERE?
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
     
     //MARK: - Alert Controller
     func presentAlertController(){
@@ -86,6 +92,12 @@ class PostDetailTableViewController: UITableViewController {
         alertController.addAction(dismissAction)
         alertController.addAction(addAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func presentShareControllerFor(post: Post) {
+        guard let photo = post.photo else { return }
+        let shareController = UIActivityViewController(activityItems: [photo], applicationActivities: nil)
+       present(shareController, animated: true)
     }
 
 }//END OF Table VIew Controller

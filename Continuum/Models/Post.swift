@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Post: SearchableRecord {
-    
+
     var photoData: Data?
     var timestamp: Date
     var caption: String

@@ -29,7 +29,5 @@ class PostController {
         PostController.sharedInstance.posts.append(post)
         //do completion with CloudKit
     }
-    
-    
-    
+ 
 }//END OF CLASS

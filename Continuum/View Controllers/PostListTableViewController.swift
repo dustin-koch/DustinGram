@@ -9,45 +9,42 @@
 import UIKit
 
 class PostListTableViewController: UITableViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    //MARK: - Properties
+    var resultsArray: [Post] = []
+    var isSearching: Bool = false
+    var dataSource: [Post] {
+        return isSearching ? resultsArray : PostController.sharedInstance.posts
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        resultsArray = PostController.sharedInstance.posts
         tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PostController.sharedInstance.posts.count
+        return dataSource.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableTableViewCell else { return UITableViewCell() }
-        let post = PostController.sharedInstance.posts[indexPath.row]
+        let post = dataSource[indexPath.row]
         cell.post = post
 
         return cell
     }
 
-    //LEAVING IN CASE I WANT TO DELETE POSTS LATER HERE?
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "postDetailView" {
             guard let index = tableView.indexPathForSelectedRow?.row else { return }
@@ -58,3 +55,34 @@ class PostListTableViewController: UITableViewController {
     }
 
 }//END OF VIEW CONTROLLER
+
+extension PostListTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var tempArray: [Post] = []
+        guard let searchText = searchBar.text,
+            searchBar.text != "" else { return }
+        for post in dataSource {
+            if post.matches(searchTerm: searchText) {
+                tempArray.append(post)
+            }
+        }
+        self.resultsArray = tempArray
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        resultsArray = PostController.sharedInstance.posts
+        self.tableView.reloadData()
+        self.searchBar.text = ""
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.isSearching = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.isSearching = false
+    }
+ 
+}//END OF EXTENSION

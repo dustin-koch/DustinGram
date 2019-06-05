@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-861" y="151"/>
         </scene>
-        <!--Post List Table View Controller-->
+        <!--Photo Collection-->
         <scene sceneID="l2d-tQ-xW7">
             <objects>
                 <tableViewController id="aLp-Fa-5ql" customClass="PostListTableViewController" customModule="Continuum" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,9 +35,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a post or comment" showsCancelButton="YES" id="qMM-E0-lwK">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="486" id="LN2-fd-Kn1" customClass="PostTableTableViewCell" customModule="Continuum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="486"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="486"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LN2-fd-Kn1" id="n28-yu-pI6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="485.5"/>
@@ -107,7 +112,10 @@
                             <outlet property="delegate" destination="aLp-Fa-5ql" id="dD8-Z4-GzA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2s7-tW-BPT"/>
+                    <navigationItem key="navigationItem" title="Photo Collection" id="2s7-tW-BPT"/>
+                    <connections>
+                        <outlet property="searchBar" destination="qMM-E0-lwK" id="DKU-Ec-B7k"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zo-vj-yA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,11 +363,11 @@
             </objects>
             <point key="canvasLocation" x="1818.840579710145" y="-141.29464285714286"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="lRj-yZ-OxR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w8q-IA-fhy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XZJ-5O-n30"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="XZJ-5O-n30"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Exq-Gb-8GZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -374,11 +382,11 @@
             </objects>
             <point key="canvasLocation" x="102.89855072463769" y="-140.625"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="Bk0-Zj-ljG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2by-Kc-Ltn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Qlz-2J-09e"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="Qlz-2J-09e"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Okx-EL-mW0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
